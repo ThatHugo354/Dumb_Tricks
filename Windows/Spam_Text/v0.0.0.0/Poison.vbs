@@ -3,12 +3,12 @@ DIM strSpam, intCharWait_ms, intSentenceWait_ms, intLightWait_ms
 	intCharWait_ms = 20
 	intSentenceWait_ms = 200
 	intLightWait_ms = 100
-DIM objWSS, objFSO, strCamp, strScriptSpam, strScriptDisco
-	Set objWSS = WScript.CreateObject("WScript.Shell")
-	Set objFSO = CreateObject("Scripting.FileSystemObject")
+DIM strCamp, strScriptSpam, strScriptDisco, objWSS, objFSO
 	strCamp = objFSO.BuildPath(objWSS.Environment("Process").Item("LocalAppData"),"\Dumb Tricks\Spam Text")
 	strScriptSpam = "Spammer.vbs"
 	strScriptDisco = "Disco.vbs"
+	Set objWSS = WScript.CreateObject("WScript.Shell")
+	Set objFSO = CreateObject("Scripting.FileSystemObject")
 DIM objScripter
 Sub MakeWay(strPath)
 	If Not objFSO.FolderExists(strPath) Then
@@ -43,7 +43,7 @@ objScripter.Write _
 	chr(9) & "objWSS.SendKeys ""{CapsLock}""" & vbCrLf &_
 	chr(9) & "objWSS.SendKeys ""{NumLock}""" & vbCrLf &_
 	chr(9) & "objWSS.SendKeys ""{ScrollLock}""" & vbCrLf &_
-	"WScript.Sleep " & intLightWait_ms & vbCrLf &_
+	chr(9) & "WScript.Sleep " & intLightWait_ms & vbCrLf &_
 	"Loop"
 objScripter.Close: Set objScripter = Nothing
 objWSS.Run strScriptSpam,0,False
