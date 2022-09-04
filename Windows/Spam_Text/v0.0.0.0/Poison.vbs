@@ -5,7 +5,7 @@ DIM strSpam, intCharWait_ms, intSentenceWait_ms, intLightWait_ms
 	intLightWait_ms = 100
 DIM objWSS, objFSO, strCamp, strScriptSpam, strScriptDisco
 	Set objWSS = WScript.CreateObject("WScript.Shell")
-	Set objFSO = WScript.CreateObject("Scripting.FileSystemObject")
+	Set objFSO = CreateObject("Scripting.FileSystemObject")
 	strCamp = objFSO.BuildPath(objWSS.Environment("Process").Item("LocalAppData"),"\Dumb Tricks\Spam Text")
 	strScriptSpam = "Spammer.vbs"
 	strScriptDisco = "Disco.vbs"
